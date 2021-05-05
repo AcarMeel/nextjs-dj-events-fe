@@ -27,7 +27,7 @@ export default function EventPage({ evt }) {
         {
             evt.image && (
                 <div className={styles.image}>
-                    <Image src={evt.image} width={960} height={600} />
+                    <Image src={evt.image.formats.large.url} width={960} height={600} />
                 </div>
             )
         }
@@ -46,7 +46,7 @@ export default function EventPage({ evt }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await fetch(`${API_URL}/api/events?slug=${slug}`);
+  const res = await fetch(`${API_URL}/events?slug=${slug}`);
   const events = await res.json();
 
   return {
