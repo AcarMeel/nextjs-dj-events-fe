@@ -10,7 +10,7 @@ export default function EventItem({evt}) {
                 width={170} height={100} />
             </div>
             <div className={styles.info}>
-                <span>{evt.date} at {evt.time}</span>
+                <span>{new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}</span>
                 <h3>{evt.name}</h3>
             </div>
             <div className={styles.link}>
